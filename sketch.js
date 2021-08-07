@@ -1,4 +1,4 @@
-const Engine= matter.Engine;
+const Engine= Matter.Engine;
 const World= Matter.World;
 const Bodies = Matter.Bodies;
 const Constraint = Matter.Constraint;
@@ -6,7 +6,7 @@ const Constraint = Matter.Constraint;
 var engine, world;
 var ground,paper;
 var binImg,bin;
-
+var launcher1;
 
 function preload(){
     binImg = loadImage("dustbin.png");
@@ -18,7 +18,7 @@ function setup(){
     world = engine.world;
 
     ground = new Ground();
-    paper = new paper();
+    paper = new paperclass();
 
     bin = createSprite(964,500,20,20);
     bin.addImage(binImg);
@@ -27,7 +27,7 @@ function setup(){
     binPart1 = new Dustbin(909,510,10,120);
     binPart2 = new Dustbin(965,580,130,10);
     binPart3 = new Dustbin(1020,510,10,120);
-    launcher = new launcher(paper.body,{x:200, y:100});
+    launcher1 = new launcher(paper.body,{x:300, y:300});
 }
 
 function draw(){
@@ -38,9 +38,11 @@ function draw(){
 
     
     ground.display();
-    binPart1.display();
-    binPart2.display();
-    binPart3.display(); 
+    //binPart1.display();
+    //binPart2.display();
+    //binPart3.display(); 
+    paper.display();
+    launcher1.display();
       
     drawSprites();
 }
@@ -54,6 +56,6 @@ function mouseDragged()
 function mouseReleased()
 {
 	
-	launcher.fly();
+	launcher1.fly();
  
 }
